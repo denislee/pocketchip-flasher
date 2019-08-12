@@ -30,18 +30,22 @@ https://medium.com/@0x1231/nextthingco-pocket-c-h-i-p-flashing-guide-3445492639e
 
 ---
 
-# turn on caffeine
+# disable screen saver
 
-Disable suspend and hibernation
-
-For systems which should never attempt any type of suspension, these targets can be disabled at the systemd level with the following:
+Firstly, you may need to install xset, a lightweight application that controls some X settings.
 
 ```
-sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+apt-get install x11-xserver-utils
 ```
 
-To re-enable hibernate and suspend use the following command:
+Now open up your ~/.xinitrc file (if you don't have one then create it) and enter this:
 
 ```
-sudo systemctl unmask sleep.target suspend.target hibernate.target hybrid-sleep.target
+xset s off         # don't activate screensaver
+xset -dpms         # disable DPMS (Energy Star) features.
+xset s noblank     # don't blank the video device
+
+exec /etc/alternatives/x-session-manager      # start lxde
 ```
+
+This file runs once every time X starts and should solve the problem. I copy and pasted it from my own .xinitrc and can confirm that my screen does not blank.
