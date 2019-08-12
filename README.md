@@ -19,3 +19,5 @@ then, just run the script
 cd Flash-CHIP
 ./Flash.sh
 ```
+
+or you may your an already made image: `denislee/pocketchip-flasher`
