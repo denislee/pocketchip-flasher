@@ -21,3 +21,6 @@ cd Flash-CHIP
 ```
 
 or you may your an already made image: `denislee/pocketchip-flasher`
+
+
+https://medium.com/@0x1231/nextthingco-pocket-c-h-i-p-flashing-guide-3445492639e
