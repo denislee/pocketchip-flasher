@@ -32,14 +32,16 @@ https://medium.com/@0x1231/nextthingco-pocket-c-h-i-p-flashing-guide-3445492639e
 
 # turn on caffeine
 
-add repository
+Disable suspend and hibernation
+
+For systems which should never attempt any type of suspension, these targets can be disabled at the systemd level with the following:
 
 ```
-sudo apt-add-repository ppa:caffeine-developers/ppa
-sudo apt-get update
+sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
 ```
 
-Then install caffeine by typing in a terminal:
+To re-enable hibernate and suspend use the following command:
+
 ```
-sudo apt-get install caffeine
+sudo systemctl unmask sleep.target suspend.target hibernate.target hybrid-sleep.target
 ```
